@@ -1,0 +1,5 @@
+<resources>
+    <string name="hide_game_controls">Masquer les boutons</string>
+    <string name="show_game_controls">Afficher les boutons</string>
+    <string name="open_game_menu">Menu</string>
+</resources>

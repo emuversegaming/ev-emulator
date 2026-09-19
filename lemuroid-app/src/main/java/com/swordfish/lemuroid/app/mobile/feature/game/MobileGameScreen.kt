@@ -65,7 +65,7 @@ import gg.padkit.config.HapticFeedbackType
 import gg.padkit.inputstate.InputState
 
 @Composable
-fun MobileGameScreen(viewModel: BaseGameScreenViewModel) {
+fun MobileGameScreen(viewModel: BaseGameScreenViewModel, showControls: Boolean = true) {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
         val isLandscape = constraints.maxWidth > constraints.maxHeight
 
@@ -154,6 +154,7 @@ fun MobileGameScreen(viewModel: BaseGameScreenViewModel) {
                     GameScreenLayout.buildConstraintSet(
                         isLandscape,
                         currentControllerConfig?.allowTouchOverlay ?: true,
+                        showControls,
                     ),
             ) {
                 Box(
@@ -167,7 +168,7 @@ fun MobileGameScreen(viewModel: BaseGameScreenViewModel) {
                 val isVisible =
                     touchControllerSettings != null &&
                         currentControllerConfig != null &&
-                        touchControlsVisibleState.value
+                        touchControlsVisibleState.value && showControls
 
                 if (isVisible) {
                     CompositionLocalProvider(LocalLemuroidPadTheme provides LemuroidPadTheme()) {

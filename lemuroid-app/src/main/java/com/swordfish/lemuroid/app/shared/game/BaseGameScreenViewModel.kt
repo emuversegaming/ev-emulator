@@ -295,6 +295,11 @@ class BaseGameScreenViewModel(
         }
     }
 
+    fun showGameMenu() {
+        if (loadingState.value) return
+        sideEffects.showMenu(tilt, inputs)
+    }
+
     fun requestBackgroundSave() {
         if (loadingState.value) return
         GameService.schedule {

@@ -14,6 +14,10 @@ L'ancien état distant est conservé localement dans `backup/ev-emulator-before-
 - Variante `play` : bannière adaptative sous le menu principal et sous le jeu
   mobile, séparée des commandes par une marge de 32 dp.
 - Variante `free` : aucune dépendance publicitaire.
+- En jeu mobile : bouton pour masquer/réafficher les commandes. Le viewport
+  récupère leur espace et reste tactile. Le bouton Menu reste accessible.
+  Le choix survit à la rotation pour la partie en cours, sans changer les
+  commandes par défaut des autres jeux ni l'interface TV.
 - Debug : identifiants de démonstration Google uniquement.
 - Release : application AdMob `ca-app-pub-8171934056228590~1550648090`,
   bannière `ca-app-pub-8171934056228590/4563079381`.
