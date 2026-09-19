@@ -1,7 +1,10 @@
 package com.swordfish.lemuroid.app
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.content.Context
+import android.os.Build
+import android.webkit.WebView
 import androidx.startup.AppInitializer
 import androidx.work.ListenableWorker
 import coil.ImageLoader
@@ -40,6 +43,14 @@ class LemuroidApplication : DaggerApplication(), HasWorkerInjector, ImageLoaderF
 
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
+        // Configure WebView before ContentProviders or advertising SDKs initialize
+        // it. The emulator runs in :game while the library stays in the main process.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val processName = Application.getProcessName()
+            if (processName != base.packageName) {
+                WebView.setDataDirectorySuffix(processName)
+            }
+        }
         ContextHandler.attachBaseContext(base)
     }
 

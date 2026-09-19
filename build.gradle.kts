@@ -55,6 +55,17 @@ subprojects {
             apply(plugin = "org.jlleitschuh.gradle.ktlint")
 
             extensions.configure(BaseExtension::class.java) {
+                if (project.name == "bundled-cores") {
+                    // Git on Windows can check out symlinks as plain text. Package
+                    // the actual core binaries rather than bundled-cores' links.
+                    val coreDirectories = rootProject.file("lemuroid-cores").listFiles()
+                        .orEmpty()
+                        .filter { it.isDirectory && it.name.startsWith("lemuroid_core_") }
+                        .sortedBy { it.name }
+                        .map { it.resolve("src/main/jniLibs") }
+                    check(coreDirectories.isNotEmpty()) { "Initialize the lemuroid-cores submodule before building." }
+                    sourceSets.getByName("main").jniLibs.setSrcDirs(coreDirectories)
+                }
                 compileSdkVersion(deps.android.compileSdkVersion)
                 buildToolsVersion(deps.android.buildToolsVersion)
                 defaultConfig {

@@ -43,6 +43,19 @@ Configurer `sdk.dir` dans `local.properties` ou `ANDROID_HOME`.
 Le sous-module inclut la configuration des moteurs ; vérifier la présence
 des binaires nécessaires avant de considérer un APK comme jouable.
 
+Sous Windows, Git peut convertir les liens symboliques de `bundled-cores`
+en fichiers texte. Le build racine configure donc les sources JNI directement
+depuis `lemuroid_core_*/src/main/jniLibs`, où se trouvent les vrais binaires.
+Ne pas remplacer cette configuration par les liens du dossier bundled-cores.
+
+L'application configure également un dossier WebView distinct pour chaque
+processus secondaire avant l'initialisation des SDK, afin que les publicités
+du menu et du jeu ne se disputent pas le même verrou WebView sur Android 9+.
+
+Dans Android Studio, choisir `playBundleDebug` puis la configuration
+`EV Emulator Mobile`. Elle lance explicitement l'activité mobile ; la sélection
+automatique de l'activité peut sinon lancer l'interface TV sur un téléphone.
+
 Vérification du 19 septembre 2026 : `compilePlayBundleDebugKotlin` et
 `assemblePlayBundleDebug` réussis avec le SDK Android 35. L'APK de développement
 est généré dans `lemuroid-app/build/outputs/apk/playBundle/debug/`.
