@@ -10,7 +10,9 @@ L'ancien état distant est conservé localement dans `backup/ev-emulator-before-
 
 - Nom : EV Emulator ; identifiant Android : `com.emuversegaming.evemulator`.
 - Les packages Kotlin et les crédits Lemuroid restent conservés pour limiter
-  les changements inutiles. Icône provisoire héritée de Lemuroid.
+  les changements inutiles. Icône EV fournie par le propriétaire du projet,
+  exportée depuis `branding/ev-logo.png` (source de 90 × 90 pixels).
+  Les aides et messages traduits utilisent le nom Ev Emulator.
 - Variante `play` : bannière adaptative sous le menu principal et sous le jeu
   mobile, séparée des commandes par une marge de 32 dp.
 - Variante `free` : aucune dépendance publicitaire.

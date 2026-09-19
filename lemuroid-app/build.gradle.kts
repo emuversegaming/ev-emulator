@@ -96,14 +96,14 @@ android {
             isMinifyEnabled = true
             signingConfig = signingConfigs["release"]
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            resValue("string", "lemuroid_name", "EV Emulator")
+            resValue("string", "lemuroid_name", "Ev Emulator")
             resValue("string", "admob_app_id", "ca-app-pub-8171934056228590~1550648090")
             resValue("string", "admob_banner_id", "ca-app-pub-8171934056228590/4563079381")
         }
         getByName("debug") {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
-            resValue("string", "lemuroid_name", "EV Emulator Debug")
+            resValue("string", "lemuroid_name", "Ev Emulator Debug")
             resValue("string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713")
             resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
         }
