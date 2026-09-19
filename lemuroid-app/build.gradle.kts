@@ -12,7 +12,7 @@ android {
     defaultConfig {
         versionCode = 252
         versionName = "1.17.0" // Always remember to update Cores Tag!
-        applicationId = "com.swordfish.lemuroid"
+        applicationId = "com.emuversegaming.evemulator"
     }
     flavorDimensions += listOf("opensource", "cores")
 
@@ -96,12 +96,16 @@ android {
             isMinifyEnabled = true
             signingConfig = signingConfigs["release"]
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            resValue("string", "lemuroid_name", "Lemuroid")
+            resValue("string", "lemuroid_name", "EV Emulator")
+            resValue("string", "admob_app_id", "ca-app-pub-8171934056228590~1550648090")
+            resValue("string", "admob_banner_id", "ca-app-pub-8171934056228590/4563079381")
         }
         getByName("debug") {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-DEBUG"
-            resValue("string", "lemuroid_name", "LemuroiDebug")
+            resValue("string", "lemuroid_name", "EV Emulator Debug")
+            resValue("string", "admob_app_id", "ca-app-pub-3940256099942544~3347511713")
+            resValue("string", "admob_banner_id", "ca-app-pub-3940256099942544/6300978111")
         }
     }
 
@@ -137,6 +141,8 @@ dependencies {
 
     "freeImplementation"(project(":lemuroid-app-ext-free"))
     "playImplementation"(project(":lemuroid-app-ext-play"))
+    "playImplementation"("com.google.android.gms:play-services-ads:24.1.0")
+    "playImplementation"("com.google.android.ump:user-messaging-platform:3.2.0")
 
     implementation(deps.libs.androidx.navigation.navigationFragment)
     implementation(deps.libs.androidx.navigation.navigationUi)

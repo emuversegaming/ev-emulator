@@ -121,7 +121,9 @@ class MainActivity : RetrogradeComponentActivity(), BusyActivity {
 
         setContent {
             val navController = rememberNavController()
-            MainScreen(navController)
+            com.swordfish.lemuroid.app.ads.BannerScreen(this, collectConsent = true) {
+                MainScreen(navController)
+            }
         }
     }
 

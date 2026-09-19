@@ -8,7 +8,9 @@ import com.swordfish.lemuroid.app.shared.game.BaseGameScreenViewModel
 class GameActivity : BaseGameActivity() {
     @Composable
     override fun GameScreen(viewModel: BaseGameScreenViewModel) {
-        MobileGameScreen(viewModel)
+        com.swordfish.lemuroid.app.ads.BannerScreen(this, collectConsent = false) {
+            MobileGameScreen(viewModel)
+        }
     }
 
     override fun getDialogClass() = GameMenuActivity::class.java
